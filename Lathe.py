@@ -31,6 +31,7 @@ class LatheDetail:
         final_price = material_price_for_1_kg*self.weight()*work_complexity
         return material_price_for_1_kg, work_complexity,final_price
 
+
     def display_info(self): #display all the information about the order< that customer had already made and price display
         print("\nInfo about order:\n")
         print("\tMaterial:",self.material, "\n\tMaterial price for 1 kg: " ,"₴",self.price()[0],
@@ -41,69 +42,82 @@ class LatheDetail:
 
 #--------------------------------------------------- input+input error detection --------------------------------------
 
-def input_1():
+while True:
+
     print("\nHi user, first indicate a material for your detail.\nAvailable material are: aluminum, copper, steel.")
     a=input("\nMaterial:")
-    return a
 
-lookfor = re.compile("aluminum|copper|steel")
-res = re.match(lookfor,input_1())
+    lookfor = re.compile("aluminum|copper|steel")
+    res = re.match(lookfor, a)
 
-if res == None:
-    print("\n\tWrong value. Reenter the value correctly")
-    input_1()
+    if res == None:
+        print("\n\tWrong value. Reenter the value correctly")
+        continue
 
+    else:
+        break
 
-def input_2():
+while True:
+
     print("\nIndicate a type of the drawing.\nAvailable drawings are: engine, bearing, flange.")
     b=input("\ndrawing:")
-    return b
 
-lookfor2 = re.compile("engine|bearing|flange")
-res2 = re.match(lookfor2,input_1())
+    lookforb = re.compile("engine|bearing|flange")
+    resb = re.match(lookforb, b)
 
-if res2 == None:
-    print("\n\tWrong value. Reenter the value correctly")
-    input_2()
+    if resb == None:
+        print("\n\tWrong value. Reenter the value correctly")
+        continue
 
+    else:
+        break
 
-def input_3():
+while True:
+
     print("\nIndicate a detail length in mm.")
     c=input("\ndetail length:")
-    return c
 
-lookfor3 = re.compile("\d+")
-res3 = re.match(lookfor3,input_1())
-if res3 == None:
-    print("\n\tWrong value. Reenter the value correctly")
-    input_3()
+    lookforc = re.compile("\d+")
+    resc = re.match(lookforc, c)
 
+    if resc == None:
+        print("\n\tWrong value. Reenter the value correctly")
+        continue
 
-def input_4():
+    else:
+        break
+
+while True:
+
     print("\nIndicate a detail width in mm.")
-    d=input("\ndetail length:")
-    return d
+    d=input("\ndetail width:")
 
-lookfor4 = re.compile("\d+")
-res4 = re.match(lookfor4,input_1())
-if res4 == None:
-    print("\n\tWrong value. Reenter the value correctly")
-    input_4()
+    lookford = re.compile("\d+")
+    resd = re.match(lookforc, d)
 
+    if resd == None:
+        print("\n\tWrong value. Reenter the value correctly")
+        continue
 
-def input_5():
-    print("\nIndicate a detail height in mm.")
-    e=input("\ndetail length:")
-    return e
+    else:
+        break
 
-lookfor5 = re.compile("\d+")
-res5 = re.match(lookfor5,input_1())
-if res5 == None:
-    print("\n\tWrong value. Reenter the value correctly")
-    input_5()
+while True:
 
+    print("\nIndicate a detail width in mm.")
+    e=input("\ndetail width:")
 
-order = LatheDetail(input_1(),input_2(),input_3(),input_4(),input_5())
+    lookfore = re.compile("\d+")
+    rese = re.match(lookforc, e)
+
+    if rese == None:
+        print("\n\tWrong value. Reenter the value correctly")
+        continue
+
+    else:
+        break
+
+order = LatheDetail(a,b,c,d,e)
 order.weight()
 order.display_info()
 order.price()
